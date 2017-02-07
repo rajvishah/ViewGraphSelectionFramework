@@ -1,0 +1,4 @@
+bin/*
+theia-changes/theia-build/*
+applications/*.o
+src/*.o
