@@ -36,6 +36,7 @@
 #include <Eigen/Core>
 #include <algorithm>
 
+#include "glog/logging.h"
 #include "theia/sfm/twoview_info.h"
 
 namespace theia {

@@ -3,14 +3,21 @@ CC=g++
 CFLAGS=-O0 -w -c -g -std=c++11 -fopenmp -Wall
 PKGCONFIGFLAG=`pkg-config --cflags --libs opencv`
 
-THEIAPATH=/home/rajvi/PhD/Projects/ViewGraphCVPR/theia-changes/
+THEIAPATH=/home/rajvi/ViewGraphSelection/theia-changes/
 
-LIBPATH=-L$(THEIAPATH)/theia-build/lib/ -L/usr/local/lib/ -L/usr/lib/ -L/home/rajvi/Bundler/lib/ann_1.1_char/lib/ -L/home/rajvi/PhD/Projects/ThirdPartyCodes/GlobalSFM/ceres-solver/build/lib/ -L/home/rajvi/mosek/7/tools/platform/linux64x86/bin/
+LIBPATH=-L$(THEIAPATH)/build/lib/ -L/usr/local/lib/ -L/usr/lib/ -L/home/rajvi/Bundler/lib/ -L/home/rajvi/Bundler/lib/zlib/ -L/home/rajvi/mosek/7/tools/platform/linux64x86/bin/ -L/usr/lib/x86_64-linux-gnu/
 
-IFLAGS=-I/usr/local/include/ -I/usr/include/ -I/home/rajvi/PhD/Projects/openMVG-master/src/third_party/eigen/ -I/home/rajvi/Bundler/lib/ann_1.1_char/include/ -I$(THEIAPATH)/libraries/ -I$(THEIAPATH)/TheiaSfM/libraries/ -I/usr/local/include/theia/libraries/vlfeat/ -I/usr/local/include/theia/libraries/statx -I/usr/local/include/theia/libraries/optimo/ -I/home/rajvi/mosek/7/tools/platform/linux64x86/h/ -I/home/rajvi/PhD/Projects/ViewGraphCVPR/src/ 
+IFLAGS=-I/usr/local/include/ -I/usr/include/ -I/usr/include/eigen3/ -I/home/rajvi/Bundler/lib/ann_1.1_char/include/ -I$(THEIAPATH)/libraries/ -I$(THEIAPATH)/TheiaSfM/libraries/ -I/usr/local/include/theia/libraries/vlfeat/ -I/usr/local/include/theia/libraries/statx -I/usr/local/include/theia/libraries/optimo/ -I/usr/local/include/theia/libraries/cereal/include/ -I/usr/include/suitesparse/ -I/home/rajvi/mosek/7/tools/platform/linux64x86/h/ -Isrc/ 
 
-LIBS=-lANN_char -lz -lglog -lceres -leasyexif -ltheia -lstlplus3 -leasyexif -lceres -lvlfeat -lmosek64
+#LIBS=-lz -lANN_char -llapack -lopenblas -latlas -lsuitesparseconfig -lcxsparse -lcholmod -lamd -lcolamd -lccolamd -lcamd -lrt -lblas -lglog -lceres -lsuitesparseconfig -lcxsparse -lsuitesparseconfig -lcholmod -lamd -lcolamd -lccolamd -lcamd -lrt -lblas -leasyexif -ltheia -lstlplus3 -leasyexif -lceres -lvlfeat -liomp5 -lmosek64 -lpthread -lcxsparse -lcholmod -lamd -lcolamd -lccolamd -lcamd -lsuitesparseconfig -fopenmp -lblas -lcblas  
 
+#LIBS=-lz -lANN_char -llapack -lopenblas -latlas -lglog -lceres -lsuitesparseconfig -lcxsparse -lsuitesparseconfig -lcholmod -lamd -lcolamd -lccolamd -lcamd -lrt -lblas -leasyexif -ltheia -lstlplus3 -leasyexif -lceres -lvlfeat -liomp5 -lmosek64 -lpthread -lcxsparse -lcholmod -lamd -lcolamd -lccolamd -lcamd -lsuitesparseconfig -fopenmp -lblas -lcblas  
+
+#LIBS=-lz -lANN_char -llapack -lopenblas -lglog -lceres -lblas -ltheia -leasyexif -lstlplus3 -lceres -lvlfeat -liomp5 -lmosek64 -lpthread -lcxsparse -lcholmod -lamd -lcolamd -lccolamd -lcamd -lsuitesparseconfig -fopenmp -lblas -lcblas  
+
+#LIBS=-lz -lANN_char -lglog -lceres -ltheia -leasyexif -lstlplus3 -lceres -lvlfeat -liomp5 -lmosek64 -lpthread -llapack -lopenblas -lblas -lcholmod -lamd -lcolamd -lccolamd -lcamd -lcxsparse -lsuitesparseconfig -fopenmp  
+
+LIBS=-lz -lANN_char -lglog -lceres -ltheia -leasyexif -lstlplus3 -lceres -lvlfeat -liomp5 -lmosek64 -lpthread -llapack -lopenblas -lcholmod -lamd -lcolamd -lccolamd -lcamd -lcxsparse -lsuitesparseconfig -fopenmp  
 
 SOURCES = $(wildcard src/*.cpp) 
 APPLICATIONS = $(wildcard applications/*.cpp)

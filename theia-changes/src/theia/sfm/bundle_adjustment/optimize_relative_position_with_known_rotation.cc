@@ -39,6 +39,7 @@
 #include <algorithm>
 #include <vector>
 
+#include "glog/logging.h"
 #include "theia/math/util.h"
 #include "theia/matching/feature_correspondence.h"
 #include "theia/sfm/triangulation/triangulation.h"
